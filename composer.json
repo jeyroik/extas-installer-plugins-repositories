@@ -1,0 +1,26 @@
+{
+  "name": "jeyroik/extas-installer-plugins-repositories",
+  "description": "Allows to use dynamic repositories in the plugins install section.",
+  "require": {
+    "jeyroik/extas-installer-plugins": "0.*",
+    "jeyroik/extas-repositories": "0.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9",
+    "jeyroik/extas-repositories-mongo": "1.*",
+    "jeyroik/extas-snuffbox": "0.*",
+    "jeyroik/extas-snuffbox-repositories": "0.*",
+    "phpstan/phpstan": "0.*",
+    "vlucas/phpdotenv": "^3.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "extas\\": "src/",
+      "tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --testdox --coverage-clover=coverage.xml --whitelist=src tests",
+    "stan": "vendor/bin/phpstan analyse -l 5 src"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "extas/installer-plugins-repositories",
+  "installer_version": 3,
+  "plugins": [
+    {
+      "class": "extas\\components\\plugins\\init\\AfterInitRepositoriesPlugins",
+      "stage": "extas.after.repositories.init",
+      "install_on": "initialization"
+    },
+    {
+      "class": "extas\\components\\plugins\\construct\\PluginConstructDynamicRepo",
+      "stage": "extas.plugin.install.construct",
+      "priority": 10,
+      "install_on": "initialization"
+    }
+  ]
+}
