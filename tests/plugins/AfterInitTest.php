@@ -118,4 +118,26 @@ class AfterInitTest extends TestCase
             'Current output: ' . $outputText
         );
     }
+
+    public function testMissedSection()
+    {
+        /**
+         * @var BufferedOutput $output
+         */
+        $output = $this->getOutput(true);
+
+        $afterInit = new AfterInitRepositoriesPlugins([
+            AfterInitRepositoriesPlugins::FIELD__INPUT => $this->getInput(),
+            AfterInitRepositoriesPlugins::FIELD__OUTPUT => $output
+        ]);
+
+        $afterInit([['name' => 'test']]);
+
+        $outputText = $output->fetch();
+        $this->assertStringContainsString(
+            'Missed section "' . AfterInitRepositoriesPlugins::SECTION__NAME . '"',
+            $outputText,
+            'Current output: ' . $outputText
+        );
+    }
 }
